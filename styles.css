@@ -57,8 +57,21 @@ body {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
 .logo img {
     height: 50px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    white-space: nowrap;
 }
 
 .nav-menu {
@@ -506,7 +519,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--gray-800);
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
     color: var(--white);
     padding: 60px 0 20px;
 }
@@ -532,17 +545,17 @@ body {
 }
 
 .footer-section a {
-    color: var(--gray-300);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: var(--accent-blue);
+    color: var(--white);
 }
 
 .footer-section p {
-    color: var(--gray-300);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 0.5rem;
 }
 
@@ -555,30 +568,36 @@ body {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: var(--primary-blue);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .social-links a:hover {
-    background: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid var(--gray-600);
-    color: var(--gray-300);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
     }
 
     .nav-menu {
@@ -636,6 +655,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .logo-text {
+        display: none;
+    }
+
     .hero-content h1 {
         font-size: 1.8rem;
     }
