@@ -660,7 +660,7 @@ body {
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px var(--shadow);
-        padding: 2rem 0;
+        padding: 3rem 0 2rem 0;
     }
 
     .nav-menu.active {
@@ -701,6 +701,19 @@ body {
 
     .features-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Add extra top padding for sections to account for fixed navbar */
+    .about,
+    .courses,
+    .free-classes,
+    .instructor,
+    .ebook-section {
+        padding-top: 120px;
+    }
+
+    .hero {
+        padding-top: 140px;
     }
 }
 
