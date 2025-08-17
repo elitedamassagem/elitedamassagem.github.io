@@ -88,7 +88,7 @@ document.querySelectorAll('.course-card .btn-primary, .course-card .btn-luxury')
         if (this.getAttribute('target') === '_blank') {
             return; // Don't prevent default, let the link work normally
         }
-        
+
         e.preventDefault();
 
         const courseTitle = this.closest('.course-card').querySelector('h3').textContent;
