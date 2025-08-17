@@ -84,6 +84,11 @@ document.querySelectorAll('.course-card').forEach(card => {
 // Course "SAIBA MAIS" buttons functionality
 document.querySelectorAll('.course-card .btn-primary, .course-card .btn-luxury').forEach(button => {
     button.addEventListener('click', function(e) {
+        // If button has target="_blank", let it redirect normally
+        if (this.getAttribute('target') === '_blank') {
+            return; // Don't prevent default, let the link work normally
+        }
+        
         e.preventDefault();
 
         const courseTitle = this.closest('.course-card').querySelector('h3').textContent;

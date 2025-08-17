@@ -442,6 +442,10 @@ body {
     border: 2px solid transparent;
     background-clip: padding-box;
     position: relative;
+    background-image: linear-gradient(145deg, #ffffff 0%, #fdf2f8 100%), 
+                      linear-gradient(135deg, #f093fb, #f5576c);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
 
 .course-card.luxury::before {
@@ -453,7 +457,7 @@ body {
     bottom: 0;
     border-radius: 12px;
     padding: 2px;
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.3), rgba(245, 87, 108, 0.3));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: exclude;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
