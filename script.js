@@ -43,31 +43,75 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// Simple scroll reveal animation
+const scrollReveal = () => {
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    
+    reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 50; // Reduced from 150 to make elements appear earlier
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('revealed');
         }
     });
-}, observerOptions);
+};
 
-// Observe elements for animation
+// Initialize scroll reveal
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.course-card, .feature, .class-card');
-
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Add scroll-reveal class to elements that should animate (including images)
+    const elementsToReveal = [
+        '.feature',
+        '.course-card',
+        '.class-card',
+        '.instructor-content',
+        '.instructor-image',
+        '.instructor-text',
+        '.ebook-card',
+        '.ebook-content',
+        '.about h2',
+        '.courses h2',
+        '.free-classes h2',
+        '.instructor h2',
+        '.ebook-section h2',
+        '.about-intro',
+        '.footer-content',
+        '.course-content',
+        '.class-card h3',
+        '.class-card p',
+        '.feature h3',
+        '.feature p',
+        '.feature i',
+        '.course-image img',
+        '.class-card img',
+        '.instructor-image img',
+        '.ebook-image img',
+        '.hero-image img'
+    ];
+    
+    elementsToReveal.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((element, index) => {
+            element.classList.add('scroll-reveal');
+            // Add slight delay for cards in the same container
+            if (selector.includes('card') || selector.includes('feature')) {
+                element.style.transitionDelay = `${index * 0.1}s`;
+            }
+        });
     });
+    
+    // Hero section elements should be visible immediately (except hero image which should animate)
+    const heroElements = document.querySelectorAll('.hero-content, .hero h1, .hero p, .hero-buttons');
+    heroElements.forEach(element => {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+    });
+    
+    // Initial check
+    scrollReveal();
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', scrollReveal);
 });
 
 // Course card hover effects
