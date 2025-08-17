@@ -652,19 +652,26 @@ body {
 
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 70px;
+        left: 0;
+        top: 82px;
         flex-direction: column;
         background-color: var(--white);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: all 0.3s ease;
         box-shadow: 0 10px 27px var(--shadow);
-        padding: 3rem 0 2rem 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        z-index: 500;
     }
 
     .nav-menu.active {
-        left: 0;
+        max-height: 500px;
+        padding: 3rem 0 2rem 0;
+        opacity: 1;
+        visibility: visible;
     }
 
     .hero-container {
