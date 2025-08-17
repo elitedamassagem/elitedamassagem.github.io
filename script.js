@@ -94,32 +94,6 @@ document.querySelectorAll('.course-card .btn-primary, .course-card .btn-luxury')
     });
 });
 
-// E-book button functionality
-document.querySelector('.ebook-section .btn-primary').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    // Show loading state
-    const originalText = this.textContent;
-    this.textContent = 'Processando...';
-    this.disabled = true;
-
-    // Simulate purchase/redirect process
-    setTimeout(() => {
-        // Show success message
-        this.textContent = 'Redirecionando...';
-        this.style.background = '#10b981';
-
-        // Reset after 2 seconds and redirect
-        setTimeout(() => {
-            this.textContent = originalText;
-            this.disabled = false;
-            this.style.background = '';
-            // Here you would redirect to payment page
-            console.log('E-book purchase initiated');
-        }, 2000);
-    }, 1500);
-});
-
 // Course modal functionality
 function showCourseModal(title, price) {
     // Create modal if it doesn't exist
